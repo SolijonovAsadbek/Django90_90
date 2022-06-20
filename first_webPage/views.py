@@ -7,4 +7,5 @@ I work together with a Python Programming Language."""
 
 
 def home(request):
+    print(HTML_WEB_VIEW)
     return HttpResponse(HTML_WEB_VIEW)
