@@ -12,10 +12,12 @@ def home(request):
     # from database
     obj = Article.objects.get(id=number)
 
+    # context
     context = {'title': obj.title,
                'id': obj.id,
                'content': obj.content}
 
+    # Django templates
     HTML_STRING = """<h1>{title} (id: {id})</h1>
                         <p>{content}</p>""".format(**context)
 
