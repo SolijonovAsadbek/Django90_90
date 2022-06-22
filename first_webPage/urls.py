@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 from first_webPage import views
+from first_webPage.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home),  # Views.py fayldagi funksiyaga murojat qilamiz View - ni taminlashi uchun.
+    path('', home),  # Views.py fayldagi funksiyaga murojat qilamiz View - ni taminlashi uchun.  1-usul
+    path('', views.home),  # Views.py fayldagi funksiyaga murojat qilamiz View - ni taminlashi uchun.  2-usul
 ]
