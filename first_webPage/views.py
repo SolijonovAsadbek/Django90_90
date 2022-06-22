@@ -4,15 +4,19 @@ from django.utils import timezone
 from random import randint
 from articles.models import Article
 
+
 def home(request):
     name = 'Django'
     date = timezone.now()
     number = randint(1, 3)
     # from database
     obj = Article.objects.get(id=number)
-    title = obj.title
-    content = obj.content
-    H1_STRING = f"""<h1>{title} (id: {obj.id})</h1>"""
-    P_STRING = f"""<p>{content}</p>"""
-    HTML_STRING = H1_STRING + P_STRING
+
+    context = {'title': obj.title,
+               'id': obj.id,
+               'content': obj.content}
+
+    HTML_STRING = """<h1>{title} (id: {id})</h1>
+                        <p>{content}</p>""".format(**context)
+
     return HttpResponse(HTML_STRING)
