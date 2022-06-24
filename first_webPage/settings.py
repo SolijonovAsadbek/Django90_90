@@ -55,7 +55,7 @@ ROOT_URLCONF = 'first_webPage.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],   # O'zgaruvchan link yozish.
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
