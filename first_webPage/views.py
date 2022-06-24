@@ -12,11 +12,20 @@ def home(request):
     number = randint(1, 3)
     # from database
     obj = Article.objects.get(id=number)
+    my_list = ['Python', 'Django', 'Flask', 'Django REST Framework', 'Flask Fast API', 'Database', 'C++', 'Go', 'PHP']
+    # my_str = ''
+    # for item in my_list:
+    #     my_str += f'<li>{item}</li>'
+
+    # from database list
+    objects = Article.objects.all()
 
     # context
     context = {'title': obj.title,
                'id': obj.id,
-               'content': obj.content}
+               'content': obj.content,
+               'my_list': my_list,
+               'objects': objects}
     # Django templates
     HTML_STRING = render_to_string(template_name='home.html', context=context)
 

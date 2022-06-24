@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}
-Database
+    Database
 {% endblock %}
 
 {% block content %}
-    <h1>{{ title }} - (id: {{ id }})</h1>
-    <p>{{ content }}</p>
+    {% for object in objects %}
+        <h1>{{ object.title }} - (id: {{ object.id }})</h1>
+        <p>{{ object.content }}</p>
+    {% endfor %}
+    <ul>
+        {% for item in my_list %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
