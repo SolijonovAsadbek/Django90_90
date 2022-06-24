@@ -5,7 +5,7 @@
 
 {% block content %}
     {% for object in objects %}
-        <li><a href="actile/{{ object.id }}">{{ object.title }} - (id: {{ object.id }}){{ object.content }}</a></li>
+        <li><a href="article/{{ object.id }}/">{{ object.title }} - (id: {{ object.id }}){{ object.content }}</a></li>
     {% endfor %}
 
     <ul>
