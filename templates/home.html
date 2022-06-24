@@ -5,9 +5,9 @@
 
 {% block content %}
     {% for object in objects %}
-        <h1>{{ object.title }} - (id: {{ object.id }})</h1>
-        <p>{{ object.content }}</p>
+        <li><a href="actile/{{ object.id }}">{{ object.title }} - (id: {{ object.id }}){{ object.content }}</a></li>
     {% endfor %}
+
     <ul>
         {% for item in my_list %}
             <li>{{ item }}</li>

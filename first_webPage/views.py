@@ -13,9 +13,6 @@ def home(request):
     # from database
     obj = Article.objects.get(id=number)
     my_list = ['Python', 'Django', 'Flask', 'Django REST Framework', 'Flask Fast API', 'Database', 'C++', 'Go', 'PHP']
-    # my_str = ''
-    # for item in my_list:
-    #     my_str += f'<li>{item}</li>'
 
     # from database list
     objects = Article.objects.all()
