@@ -5,7 +5,9 @@ from articles.models import Article
 # Create your views here.
 def detail_view(request, id):
     # from Article database
-    obj = Article.objects.get(id=id)
+    obj = None
+    if id is not None:
+        obj = Article.objects.get(id=id)
 
     # context
     context = {
