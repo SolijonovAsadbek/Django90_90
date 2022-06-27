@@ -22,5 +22,5 @@ from articles.views import detail_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),  # Views.py fayldagi funksiyaga murojat qilamiz View - ni taminlashi uchun.
-    path('article/<int:id>/', detail_view)  # http://127.0.0.1:8000/article/4/
+    path('article/<int:article_id>/', detail_view)  # http://127.0.0.1:8000/article/4/
 ]
