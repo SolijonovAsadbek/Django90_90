@@ -40,7 +40,6 @@ def search_view(request):
 
 # Create Content
 def create_view(request):
-    context = dict()
     post = request.method
     if post == 'POST':
         title = request.POST.get('title')
@@ -49,4 +48,4 @@ def create_view(request):
         if title and content:
             Article.objects.create(title=title, content=content)
             return redirect(to='http://localhost:8000/')
-    return render(request=request, template_name='articles/create.html', context=context)
+    return render(request=request, template_name='articles/create.html')

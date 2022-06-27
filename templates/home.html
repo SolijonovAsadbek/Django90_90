@@ -7,6 +7,12 @@
     {% for object in objects %}
         <li><a href="article/{{ object.id }}/">{{ object.title }} - (id: {{ object.id }}){{ object.content }}</a></li>
     {% endfor %}
+    <div style="margin-top: 10px">
+
+        <a href="/article/create/">
+            <button>Add</button>
+        </a>
+    </div>
 
     <ul>
         {% for item in my_list %}
