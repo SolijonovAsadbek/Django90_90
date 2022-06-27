@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from first_webPage import views
-from articles.views import detail_view, search_view
+from articles.views import detail_view, search_view, create_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),  # Views.py fayldagi funksiyaga murojat qilamiz View - ni taminlashi uchun.
     path('article/<int:id>/', detail_view),
-    path('article/', search_view)
+    path('article/', search_view),
+    path('article/create/', create_view),
 ]

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from articles.models import Article
 
 
-# Create your views here.
+# Detail
 def detail_view(request, id):
     # from Article database
     obj = None
@@ -18,6 +18,7 @@ def detail_view(request, id):
     return render(request=request, template_name='articles/detail.html', context=context)
 
 
+# Search
 def search_view(request):
     try:
         pk = int(request.GET.get('q'))
@@ -25,7 +26,6 @@ def search_view(request):
         pk = None
 
     obj = None
-
     if pk is not None:
         try:
             obj = Article.objects.get(id=pk)
@@ -36,3 +36,10 @@ def search_view(request):
         'object': obj
     }
     return render(request=request, template_name='articles/search.html', context=context)
+
+
+# Create Content
+def create_view(request):
+    context = dict()
+    print(request.POST)
+    return render(request=request, template_name='articles/create.html', context=context)
