@@ -3,11 +3,11 @@ from articles.models import Article
 
 
 # Detail
-def detail_view(request, id):
+def detail_view(request, article_id):
     # from Article database
     obj = None
-    if id is not None:
-        obj = Article.objects.get(id=id)
+    if article_id is not None:
+        obj = Article.objects.get(id=article_id)
 
     # context
     context = {
