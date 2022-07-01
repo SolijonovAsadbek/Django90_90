@@ -3,6 +3,15 @@
     Database
 {% endblock %}
 
+{% block search %}
+    Search Article
+    <form action="/article/" method="get">
+        <label>
+            <input type="text" name="q">
+        </label>
+        <button type="submit">Search</button>
+    </form>
+{% endblock %}
 {% block content %}
     {% for object in objects %}
         <li><a href="article/{{ object.id }}/">{{ object.title }} - (id: {{ object.id }}){{ object.content }}</a></li>

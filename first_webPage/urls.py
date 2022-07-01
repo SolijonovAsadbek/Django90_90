@@ -18,6 +18,7 @@ from django.urls import path, include
 
 from first_webPage import views
 from articles.views import detail_view, search_view, create_view
+from accounts.views import login_view, logout_view, register_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +26,7 @@ urlpatterns = [
     path('article/<int:article_id>/', detail_view),
     path('article/', search_view),
     path('article/create/', create_view),
+    path('login/', login_view),
+    path('logout/', logout_view),
+    path('register/', register_view),
 ]
