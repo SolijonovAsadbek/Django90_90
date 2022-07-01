@@ -4,15 +4,19 @@
 {% endblock %}
 
 {% block content %}
-    <form action="/login/" method="POST">{% csrf_token %}
-        <div style="margin: 10px 0;">
-            <input type="text" name="username" placeholder="Username">
-        </div>
-        <div>
-            <input type="password" name="password" placeholder="Password">
-        </div>
-        <div style="margin: 10px 0;">
-            <button type="submit">Login</button>
-        </div>
-    </form>
+    {% if not error %}
+        <form action="/login/" method="POST">{% csrf_token %}
+            <div style="margin: 10px 0;">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <div style="margin: 10px 0;">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    {% else %}
+        {{ error }}
+    {% endif %}
 {% endblock %}
