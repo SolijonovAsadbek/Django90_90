@@ -13,7 +13,7 @@ def login_view(request):
             context = {'error': 'You don`t have a register.'}
             return render(request, template_name='accounts/login.html', context=context)
         login(request, user)
-        return redirect(to='/logout/')
+        return redirect(to='/login/')
 
     return render(request=request, template_name='accounts/login.html')
 

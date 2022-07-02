@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
+from articles.forms import ArticleForm
 from articles.models import Article
 
 
@@ -42,12 +44,16 @@ def search_view(request):
 # Create Content
 @login_required
 def create_view(request):
-    post = request.method
-    if post == 'POST':
-        title = request.POST.get('title')
-        content = request.POST.get('content')
+    form = ArticleForm(request.POST or None)
+    context = {
+        'form': form
+    }
+    # print(dir(form))
+
+    if form.is_valid():
+        title = form.cleaned_data.get('title')
+        content = form.cleaned_data.get('content')
         print(title, content)
-        if title and content:
-            Article.objects.create(title=title, content=content)
-            return redirect(to='http://localhost:8000/')
-    return render(request=request, template_name='articles/create.html')
+        Article.objects.create(title=title, content=content)
+        return redirect(to='/')
+    return render(request=request, template_name='articles/create.html', context=context)
