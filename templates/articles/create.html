@@ -14,16 +14,17 @@
     <form action="/article/create/" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-{#        <div style="margin: 10px 0;">#}
-{#            <label for="title">#}
-{#                <input type="text" name="title" placeholder="Enter Title" id="title">#}
-{#            </label>#}
-{#        </div>#}
-{#        <div>#}
-{#            <label for="content">#}
-{#                <textarea name="content" id="content" placeholder="Enter Content" cols="30" rows="10"></textarea>#}
-{#            </label>#}
-{#        </div>#}
+        {#        <div style="margin: 10px 0;">#}
+        {#            <label for="title">#}
+        {#                <input type="text" name="title" placeholder="Enter Title" id="title">#}
+        {#            </label>#}
+        {#        </div>#}
+        {#        <div>#}
+        {#            <label for="content">#}
+        {#                <textarea name="content" id="content" placeholder="Enter Content" cols="30" rows="10"></textarea>#}
+        {#            </label>#}
+        {#        </div>#}
         <button type="submit">Save</button>
+        <p>I go to the <a href="/">Home</a></p>
     </form>
 {% endblock %}

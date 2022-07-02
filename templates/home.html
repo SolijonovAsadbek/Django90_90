@@ -18,6 +18,12 @@
         <a href="/article/create/">
             <button>Add</button>
         </a>
+        <a href="/register/">
+            <button>Register</button>
+        </a>
+        <a href="/login/">
+            <button>Login</button>
+        </a>
     </div>
     {% for object in objects %}
         <li><a href="article/{{ object.id }}/">{{ object.title }} - (id: {{ object.id }}){{ object.content }}</a></li>
