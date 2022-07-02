@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from articles.models import Article
 
@@ -39,6 +40,7 @@ def search_view(request):
 
 
 # Create Content
+@login_required
 def create_view(request):
     post = request.method
     if post == 'POST':

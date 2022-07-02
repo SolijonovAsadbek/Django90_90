@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 
 
-# Create your views here.
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -14,7 +13,7 @@ def login_view(request):
             context = {'error': 'You don`t have a register.'}
             return render(request, template_name='accounts/login.html', context=context)
         login(request, user)
-        return redirect(to='/logout')
+        return redirect(to='/logout/')
 
     return render(request=request, template_name='accounts/login.html')
 
