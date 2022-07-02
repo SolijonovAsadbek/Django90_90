@@ -13,15 +13,15 @@
     </form>
 {% endblock %}
 {% block content %}
-    {% for object in objects %}
-        <li><a href="article/{{ object.id }}/">{{ object.title }} - (id: {{ object.id }}){{ object.content }}</a></li>
-    {% endfor %}
-    <div style="margin-top: 10px">
+    <div style="margin: 10px 0;">
 
         <a href="/article/create/">
             <button>Add</button>
         </a>
     </div>
+    {% for object in objects %}
+        <li><a href="article/{{ object.id }}/">{{ object.title }} - (id: {{ object.id }}){{ object.content }}</a></li>
+    {% endfor %}
 
     <ul>
         {% for item in my_list %}

@@ -15,7 +15,7 @@ def home(request):
     my_list = ['Python', 'Django', 'Flask', 'Django REST Framework', 'Flask Fast API', 'Database', 'C++', 'Go', 'PHP']
 
     # from database list
-    objects = Article.objects.all()
+    objects = Article.objects.all()[::-1]
 
     # context
     context = {'title': obj.title,

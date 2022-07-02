@@ -43,7 +43,7 @@ def search_view(request):
 
 # Create Content
 @login_required
-def create_view(request):
+def create_view_old(request):
     form = ArticleForm(request.POST or None)
     context = {
         'form': form
@@ -55,5 +55,18 @@ def create_view(request):
         content = form.cleaned_data.get('content')
         print(title, content)
         Article.objects.create(title=title, content=content)
+        return redirect(to='/')
+    return render(request=request, template_name='articles/create.html', context=context)
+
+
+@login_required
+def create_view(request):
+    form = ArticleForm(request.POST or None)
+    context = {
+        'form': form
+    }
+    if form.is_valid():
+        form.save()
+        context['form'] = ArticleForm()
         return redirect(to='/')
     return render(request=request, template_name='articles/create.html', context=context)
