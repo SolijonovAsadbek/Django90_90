@@ -7,7 +7,7 @@
     {% if not request.user.is_authenticated %}
         <form action="/login/" method="POST">{% csrf_token %}
             {% if error %}
-                <p style="color: red">Warning: {{ error }}</p>
+                <p style="color: red;">Warning: {{ error }}</p>
             {% endif %}
             <div style="margin: 10px 0;">
                 <input type="text" name="username" placeholder="Username">
@@ -20,6 +20,6 @@
             </div>
         </form>
     {% else %}
-        <p>You are already logged in. <a href="/logout">Logout</a></p>
+        <p>You are already login. <a href="/logout">Logout</a></p>
     {% endif %}
 {% endblock %}
