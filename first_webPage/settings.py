@@ -56,7 +56,7 @@ LOGIN_URL = '/login/'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],   # O'zgaruvchan link yozish.
+        'DIRS': [BASE_DIR / 'templates'],  # O'zgaruvchan link yozish.
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
