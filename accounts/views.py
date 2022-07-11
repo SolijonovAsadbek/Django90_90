@@ -1,21 +1,22 @@
+from django.contrib.auth import login, logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        print(f'username: {username}\npassword: {password}')
-        user = authenticate(request, username=username, password=password)
-        print(user)
-        if user is None:
-            context = {'error': 'You don`t have a register.'}
-            return render(request, template_name='accounts/login.html', context=context)
+        form = AuthenticationForm(request, data=request.POST)  # POST action uchun
+        user = form.get_user()
         login(request, user)
         return redirect(to='/login/')
+    else:
+        form = AuthenticationForm(request)  # Bo`sh maydon uchun
 
-    return render(request=request, template_name='accounts/login.html')
+    context = {
+        'form': form
+    }
+
+    return render(request=request, template_name='accounts/login.html', context=context)
 
 
 def logout_view(request):
